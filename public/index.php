@@ -1,0 +1,1 @@
+echo "swx from index"
