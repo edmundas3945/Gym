@@ -62,11 +62,28 @@ class Router
                 return $this->renderView('_404');
             }
         }
+
+        if (is_string($callback)) {
+            return $this->renderView($callback);
+        }
+
+        if (is_array($callback)){
+            $instance = new $callback[0];
+            Application::$app->controller = $instance;
+            $callback[0] = Application::$app->controller;
+
+            if (isset($callback['urlParamName'])){
+                $urlParam['name'] = $callback['urlParamName'];
+                array_splice($callback, 2, 1);
+            }
+        }
+
+        return call_user_func($callback, $this->request, $urlParam ?? null);
     }
 
     public function renderView(string $view, array $params = [])
     {
-        $layout = $this->layoutContent;
+        $layout = $this->layoutContent();
         $page = $this->pageContent($view, $params);
 
         return str_replace('{{content}}', $page, $layout);
