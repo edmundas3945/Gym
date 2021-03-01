@@ -10,8 +10,8 @@ class Request
 
         $requestPosition = strpos($path, '?');
 
-        if ($questionPosition !== false) {
-            $path = substr($path, 0, $questionPosition);
+        if ($requestPosition !== false) {
+            $path = substr($path, 0, $requestPosition);
         }
         if (strlen($path) > 1) {
             $path = trim($path, '/');
