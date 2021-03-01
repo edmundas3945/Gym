@@ -24,7 +24,7 @@ class Application
 
     public function run()
     {
-        echo $this->router->resolve;
+        echo $this->router->resolve();
     }
 
     public function getController(): Controller
