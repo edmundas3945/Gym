@@ -1,5 +1,15 @@
 <?php 
 
+use app\core\Application;
+use app\controller\PagesController;
+
 require_once '../vendor/autoload.php';
 
-echo "swx from index";
+$app = new Application(dirname(__DIR__));
+
+$app->router->get('/', [PagesController::class, 'home']);
+
+
+
+
+$app->run();
