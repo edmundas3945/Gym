@@ -91,7 +91,12 @@ class Router
 
     public function layoutContent()
     {
-        $layout = Application::$app->controller->layout;
+        if (isset(Application::$app->controller)) {
+            $layout = Application::$app->controller->layout;
+        }else{
+            $layout = 'main';
+        }
+        
         ob_start();
         include_once Application::$ROOT_DIR . "/view/layouts/$layout.php";
         return ob_get_clean();
