@@ -10,15 +10,33 @@ class UserController extends Controller
 
     public function __construct()
     {
-        
     }
 
+    public function login(Request $request)
+    {
+        // have ability to change laout
+        $this->setLayout('auth');
+
+        if ($request->isGet()) :
+            $data = [
+                'email' => '',
+                'password' => '',
+                'errors' => [
+                    'emailErr' => '',
+                    'passwordErr' => '',
+                ]
+            ];
+            return $this->render('login', $data);
+        endif;
+
+
+    }
 
     public function register(Request $request)
     {
         $this->setLayout('auth');
 
-        if ($request->isGet()){
+        if ($request->isGet()) {
             $data = [
                 'name' => '',
                 'surname' => '',
@@ -39,12 +57,11 @@ class UserController extends Controller
             ];
             return $this->render('register', $data);
         }
-        
-        
+
+        if ($request->isPost()) {
+            $data = $request->getBody();
+
+            return $this->render('register', $data);
+        }
     }
-
-
-
-
-   
 }
