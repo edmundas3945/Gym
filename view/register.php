@@ -42,9 +42,15 @@
                     <span class='invalid-feedback'><?php echo $errors['confirmPasswordErr'] ?></span>
                 </div>
                 <div class="form-group">
-                    <label for="email">Phone:</label>
-                    <input type="text" name="phone" id="phone" class="<?php echo (!empty($errors['phoneErr'])) ? 'is-invalid' : ''; ?> form-control form-control-lg" value="<?php echo $phone ?>">
-                    <span class='invalid-feedback'><?php echo $errors['phoneErr'] ?></span>
+                    <label for="phone">Phone:</label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">+370</div>
+                        </div>
+                        <input type="text" name="phone" id="phone" class="<?php echo (!empty($errors['phoneErr'])) ? 'is-invalid' : ''; ?> form-control form-control-lg" value="<?php echo $phone ?>">
+                        <span class='invalid-feedback'><?php echo $errors['phoneErr'] ?></span>
+                    </div>
+
                 </div>
                 <div class="form-group">
                     <label for="email">Address:</label>
