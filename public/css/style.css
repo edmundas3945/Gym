@@ -14,7 +14,30 @@
 .container {
   max-width: 800px !important;
 }
-
+.page-container{
+  min-height: 100vh;
+  position: relative;
+}
+.page-content{
+  padding-bottom: 370px;
+}
+.page-content-auth{
+  padding-bottom: 70px;
+}
+footer {
+  height: 70px;
+  background-color: rgba(238, 255, 0, 0.932);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+.map{
+  position: absolute;
+  bottom: 70px;
+}
 .homeContainer {
   max-width: 800px;
   height: 400px;
@@ -66,6 +89,18 @@ a:hover {
 }
 .navbar-toggler-icon {
   border-radius: 6px;
+}
+.back{
+  background-position: center;
+  background-size: cover;
+  height: 30px;
+  width: 30px;
+}
+.back img{
+  background-position: center;
+  background-size: cover;
+  height: 30px;
+  width: 30px;
 }
 @media only screen and (max-width: 400px) {
     .topImage {
