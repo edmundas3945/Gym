@@ -3,6 +3,7 @@
 namespace app\controller;
 
 use app\core\Controller;
+use app\core\Request;
 
 class PagesController extends Controller
 {
@@ -13,15 +14,16 @@ class PagesController extends Controller
             'description' => 'Don\'t you know pump it up'
         ];
 
-        return $this->render('home', $params);
+        return $this->render('/home', $params);
     }
+
     public function feedback()
     {
-        $params = [
+        $data = [
             'title' => 'This is your favorite gym\'s feedback',
             'description' => 'Tell me about your saiyan powers'
         ];
 
-        return $this->render('feedback', $params);
+        return $this->render('/feedback', $data);
     }
 }
