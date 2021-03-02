@@ -27,6 +27,14 @@
 
 <script>
   const commentsOutput = document.getElementById('comments')
+  fetchComments()
+  function fetchComments(){
+    fetch('http://localhost/gym/feedbackJS')
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+    })
+  }
 
 </script>
 
