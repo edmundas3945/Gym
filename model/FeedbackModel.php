@@ -1,6 +1,6 @@
 <?php 
 
-namespace app\mode;
+namespace app\model;
 
 use app\core\Application;
 use app\core\Database;
@@ -20,6 +20,27 @@ class FeedbackModel
     
         $this->db->bind(':commentator', $data['name']);
         $this->db->bind(':comment', $data['comment']);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function getFeedback()
+    {
+        $this->db->query("SELECT * FROM feedback");
+
+        $result = $this->db->resultSet();
+
+        return $result;
+    }
+
+    public function removeFeedback($id)
+    {
+        $this->db->query("DELETE FROM posts WHERE id = :id");
+
+        $this->db->bind(':id', $id);
 
         if ($this->db->execute()) {
             return true;
