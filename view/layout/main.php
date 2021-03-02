@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link rel="stylesheet" href="../../public/css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
   <title>Your One And Only Gym</title>
 </head>
 
@@ -21,17 +23,17 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link text-dark" href="/feedback">Feedback</a>
+              <a class="navbar-brand text-dark" href="/feedback">Feedback</a>
             </div>
             <?php if (!\app\core\Session::isUserLoggedIn()) : ?>
               <div class="navbar-nav ml-auto">
-                <a class="nav-link text-dark" href="/login">Login</a>
-                <a class="nav-link text-dark" href="/register">Register</a>
+                <a class="navbar-brand text-dark" href="/login">Login</a>
+                <a class="navbar-brand text-dark" href="/register">Register</a>
               </div>
             <?php else : ?>
-              <div class="navbar-nav ml-auto ">
-                <a class="nav-link disabled" href="#"><?php echo $_SESSION['user_email'] ?></a>
-                <a class="nav-link" href="/logout">Logout</a>
+              <div class="navbar-nav ml-auto d-flex align-items-center">
+                <a class="navbar-brand text-dark btn disabled" href="#"><?php echo $_SESSION['user_email'] ?></a>
+                <a class="navbar-brand text-dark" href="/logout">Logout</a>
               </div>
             <?php endif; ?>
           </div>
