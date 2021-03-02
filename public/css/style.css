@@ -84,8 +84,14 @@ footer {
   color: black;
   overflow: hidden;
 }
+.loggedUser {
+  font-family: 'Oswald', sans-serif;
+}
 a:hover {
   text-decoration: none;
+}
+.form-group{
+  width: 100%;
 }
 .navbar-toggler-icon {
   border-radius: 6px;
