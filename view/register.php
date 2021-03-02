@@ -3,12 +3,14 @@
         <div class="card card-body bg-light mt-3">
             <?php //flash('register_fail'); 
             ?>
-            <div class="d-flex a-center">
+            <div class="d-flex a-center justify-content-between ">
                 <div>
                     <h2>Registration</h2>
                 </div>
                 <div>
-                    <a class="back-icon" href="/"></a>
+                    <a class="back" href="/">
+                        <img src="../../public/images/back.png" alt="">
+                    </a>
                 </div>
 
             </div>
