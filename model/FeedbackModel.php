@@ -16,9 +16,9 @@ class FeedbackModel
 
     public function createComment($data)
     {
-        $this->db->query("INSERT INTO feedback (`commentator`, `comment`) VALUES (:commentator, :comment)");
+        $this->db->query("INSERT INTO feedback (`name`, `comment`) VALUES (:name, :comment)");
     
-        $this->db->bind(':commentator', $data['name']);
+        $this->db->bind(':name', $_SESSION['user_name']);
         $this->db->bind(':comment', $data['comment']);
 
         if ($this->db->execute()) {
