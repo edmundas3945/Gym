@@ -87,9 +87,6 @@ footer {
 .loggedUser {
   font-family: 'Oswald', sans-serif;
 }
-table {
-  text-align: center;
-}
 a:hover {
   text-decoration: none;
 }
@@ -98,6 +95,25 @@ a:hover {
 }
 .navbar-toggler-icon {
   border-radius: 6px;
+}
+table {
+  text-align: left;
+}
+.comments  tr:nth-child(even){
+  background-color: rgba(238, 255, 0, 0.932);
+}
+.comments tr:hover {
+  background-color: rgb(51, 255, 0);
+}
+.comments td, .comments th {
+  padding: 8px;
+}
+.comments th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(13, 190, 22);
+  color: white;
 }
 .back{
   background-position: center;
