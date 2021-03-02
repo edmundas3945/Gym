@@ -130,10 +130,16 @@ class UserController extends Controller
 
     }
 
-    /**
-     * Unset Session values and destroy session + redirect to /
-     *
-     * @param Request $request
-     */
+    public function logout(Request $request)
+    {
+        unset($_SESSION['user_id']);
+        unset($_SESSION['user_email']);
+        unset($_SESSION['user_name']);
+
+        session_destroy();
+
+        $request->redirect('/');
+
+    }
     
 }
