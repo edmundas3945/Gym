@@ -87,6 +87,9 @@ footer {
 .loggedUser {
   font-family: 'Oswald', sans-serif;
 }
+table {
+  text-align: center;
+}
 a:hover {
   text-decoration: none;
 }
