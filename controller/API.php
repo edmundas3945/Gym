@@ -17,8 +17,11 @@ class API extends Controller
         $this->vld = new Validation();
     }
 
-    public function comments()
+    public function feedback()
     {
+        $feedback = $this->feedbackModel->getFeedback();
 
+        header('Content-Type: application/json');
+        echo json_encode($feedback);
     }
 }
