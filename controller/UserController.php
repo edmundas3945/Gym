@@ -4,14 +4,17 @@ namespace app\controller;
 
 use app\core\Controller;
 use app\core\Request;
+use app\model\UserModel;
 
 class UserController extends Controller
 {
     public Validation $vld;
+    protected UserModel $userModel;
 
     public function __construct()
     {
         $this->vld = new Validation();
+        $this->userModel = new UserModel();
     }
 
     public function login(Request $request)
@@ -30,8 +33,6 @@ class UserController extends Controller
             ];
             return $this->render('login', $data);
         endif;
-
-
     }
 
     public function register(Request $request)
@@ -75,7 +76,17 @@ class UserController extends Controller
 
             $data['errors']['phoneErr'] = $this->vld->validatePhone($data['phone']);
 
-        
+            if ($this->vld->ifEmptyArr($data['errors'])) {
+
+                $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+                if ($this->userModel->register($data)) {
+
+                    $request->redirect('/login');
+                } else {
+                    die('Something went wrong in adding user to db');
+                }
+            }
 
             return $this->render('register', $data);
         }
