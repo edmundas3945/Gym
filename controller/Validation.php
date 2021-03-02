@@ -156,4 +156,12 @@ class Validation
 
         return '';
     }
+
+    public function validateComment($field)
+    {
+        if(empty($field)) return 'Cannot send empty comment';
+        if(strlen($field) > 400) return 'Comment cannot be bigger than 400 symbols';
+        return '';
+        
+    }
 }
