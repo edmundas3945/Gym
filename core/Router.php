@@ -57,6 +57,8 @@ class Router
                 $urlParam['value'] = $pathArr[2];
             }
 
+            $callback = $this->routes[$method][$path] ?? null;
+
             if (!isset($urlParam['value'])) {
                 $this->response->setResponseCode(404);
                 return $this->renderView('_404');
@@ -98,7 +100,7 @@ class Router
         }
         
         ob_start();
-        include_once Application::$ROOT_DIR . "/view/layouts/$layout.php";
+        include_once Application::$ROOT_DIR . "/view/layout/$layout.php";
         return ob_get_clean();
     }
 
