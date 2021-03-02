@@ -90,6 +90,18 @@ a:hover {
 .navbar-toggler-icon {
   border-radius: 6px;
 }
+.back{
+  background-position: center;
+  background-size: cover;
+  height: 30px;
+  width: 30px;
+}
+.back img{
+  background-position: center;
+  background-size: cover;
+  height: 30px;
+  width: 30px;
+}
 @media only screen and (max-width: 400px) {
     .topImage {
       height: 150px;
