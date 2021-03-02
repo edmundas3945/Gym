@@ -37,11 +37,11 @@ class Validation
      * @param string $field
      * @return string
      */
-    public function validateName($field)
+    public function validateName($field, $name)
     {
         // Validate Name
         if (empty($field)) return "Please enter your Name";
-
+        if (strlen($field)>40) return "$name is too long";
         if (!preg_match("/^[a-z ,.'-]+$/i", $field)) return "Name must only contain Name characters";
 
         return ''; //falsy
@@ -66,7 +66,7 @@ class Validation
      * @param UserModel $userModel
      * @return string
      */
-    public function validateEmail($field, &$userModel = null)
+    public function validateEmail($field, &$userModel = NULL)
     {
         // validate empty
         if (empty($field)) return "Please enter Your Email";
@@ -74,10 +74,10 @@ class Validation
         // check email format
         if (filter_var($field, FILTER_VALIDATE_EMAIL) === false) return "Please check your email";
 
-        if ($userModel !== null) :
+        if ($userModel !== null){
             // if email already exists
             if ($userModel->findUserByEmail($field)) return 'Email already taken';
-        endif;
+        }
 
         return '';
     }
