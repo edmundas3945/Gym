@@ -36,7 +36,7 @@ class FeedbackController extends Controller
             $data = $request->getBody();
             $data['comments'] = $this->feedbackModel->getFeedback();
             // echo '<pre>';
-            // var_dump($data);
+            // var_dump($data['comments']);
             // echo '</pre>';
 
             $data['commentErr'] = $this->vld->validateComment($data['comment']);
