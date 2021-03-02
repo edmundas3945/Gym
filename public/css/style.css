@@ -1,0 +1,84 @@
+.topImage {
+  width: 100%;
+  height: 300px;
+  background-image: url("../../public/images/bc-about.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.navbar {
+  min-height: 70px;
+}
+.bg-c {
+  background-color: rgba(238, 255, 0, 0.932);
+}
+.container {
+  max-width: 800px !important;
+}
+
+.homeContainer {
+  max-width: 800px;
+  height: 400px;
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.favor {
+  width: 25%;
+  height: 100%;
+  background-color: rgba(238, 255, 0, 0.932);
+  text-align: center;
+  align-items: center;
+  overflow: hidden;
+}
+.favorIcon1 {
+  /* border-radius: 3px; */
+  /* width: 96%; */
+  height: 210px;
+  background-image: url("../../public/images/workoutroom.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.favorIcon2 {
+  /* border-radius: 3px; */
+  /* width: 96%; */
+  height: 210px;
+  background-image: url("../../public/images/swimingpool.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.favorIcon3 {
+  /* border-radius: 3px; */
+  /* width: 96%; */
+  height: 210px;
+  background-image: url("../../public/images/basketball.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.favor p {
+  padding: 0 9px;
+  text-decoration: none;
+  color: black;
+  overflow: hidden;
+}
+a:hover {
+  text-decoration: none;
+}
+.navbar-toggler-icon {
+  border-radius: 6px;
+}
+@media only screen and (max-width: 400px) {
+    .topImage {
+      height: 150px;
+    }
+    .homeContainer {
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      height: auto;
+    }
+    .favor {
+        width: 90%;
+        margin-top: 20px;
+    }
+  }
