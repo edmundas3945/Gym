@@ -22,7 +22,7 @@ class UserController extends Controller
         // have ability to change laout
         $this->setLayout('auth');
 
-        if ($request->isGet()) :
+        if ($request->isGet()){
             $data = [
                 'email' => '',
                 'password' => '',
@@ -32,7 +32,38 @@ class UserController extends Controller
                 ]
             ];
             return $this->render('login', $data);
-        endif;
+        }
+        if ($request->isPost()) {
+            // we get all post values sanitized
+            $data = $request->getBody();
+
+            // validation
+            $data['errors']['emailErr'] = $this->vld->validateLoginEmail($data['email'], $this->userModel);
+
+            $data['errors']['passwordErr'] = $this->vld->validateEmpty($data['password'], 'Please enter your password');
+
+            // if there are no errors
+            if ($this->vld->ifEmptyArr($data['errors'])) {
+                // no errors
+                // email was found and password was entered
+                $loggedInUser = $this->userModel->login($data['email'], $data['password']);
+
+
+                if ($loggedInUser) {
+                    // create session
+                    // password match
+                    // die('email and passs match start session immediately');
+                    $this->createUserSession($loggedInUser);
+                    $request->redirect('/posts');
+                } else {
+                    $data['errors']['passwordErr'] = 'Wrong password or email';
+                    // load view with errors
+                    return $this->render('login', $data);
+                }
+            }
+
+            return $this->render('login', $data);
+        }
     }
 
     public function register(Request $request)
