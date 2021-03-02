@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-6 mx-auto">
-        <div class="card card-body bg-light mt-3">
+        <div class=" card-body  mt-3">
             <?php //flash('register_fail'); 
             ?>
             <div class="d-flex a-center justify-content-between ">
