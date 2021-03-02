@@ -6,6 +6,7 @@ use app\core\Application;
 use app\controller\PagesController;
 use app\controller\UserController;
 use app\controller\FeedbackController;
+use app\controller\API;
 
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
@@ -31,8 +32,8 @@ $app->router->post('register', [UserController::class, 'register']);
 $app->router->get('login', [UserController::class, 'login']);
 $app->router->post('login', [UserController::class, 'login']);
 
-$app->router->get('comments', [API::class, 'comments']);
-$app->router->post('addComment', [API::class, 'addComment']);
+$app->router->get('feedbackJS', [API::class, 'feedback']);
+$app->router->post('addFeedback', [API::class, 'addFeedback']);
 
 $app->router->get('logout', [UserController::class, 'logout']);
 
