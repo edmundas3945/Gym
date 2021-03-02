@@ -20,14 +20,13 @@ class UserModel
     // @return Boolean
     public function findUserByEmail($email)
     {
-        // check if the given email is in data base
-        // prepare statement
+
         $this->db->query("SELECT * FROM users WHERE `email` = :email");
 
-        // add values to statment
         $this->db->bind(':email', $email);
 
-        // check if we got some results
+        $this->db->singleRow();
+
         if ($this->db->rowCount() > 0) {
             return true;
         } else {
