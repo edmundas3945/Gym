@@ -27,9 +27,6 @@ class UserModel
         // add values to statment
         $this->db->bind(':email', $email);
 
-        // save result in $row
-        $row = $this->db->singleRow();
-
         // check if we got some results
         if ($this->db->rowCount() > 0) {
             return true;
