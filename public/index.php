@@ -31,6 +31,9 @@ $app->router->post('register', [UserController::class, 'register']);
 $app->router->get('login', [UserController::class, 'login']);
 $app->router->post('login', [UserController::class, 'login']);
 
+$app->router->get('comments', [API::class, 'comments']);
+$app->router->post('addComment', [API::class, 'addComment']);
+
 $app->router->get('logout', [UserController::class, 'logout']);
 
 
