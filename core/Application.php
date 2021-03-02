@@ -11,9 +11,12 @@ class Application
 
     public static Application $app;
     public Controller $controller;
+    public Database $db;
+    public Session $session;
     
     public function __construct($rootPath, $config)
     {
+        $this->session = new Session();
         self::$ROOT_DIR = $rootPath;
         self::$app = $this;
 
