@@ -55,4 +55,9 @@ class Request
 
         return $body;
     }
+
+    public function redirect($whereTo)
+    {
+        header("Location: $whereTo");
+    }
 }
