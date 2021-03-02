@@ -54,7 +54,7 @@ class UserController extends Controller
                     // password match
                     // die('email and passs match start session immediately');
                     $this->createUserSession($loggedInUser);
-                    $request->redirect('/posts');
+                    $request->redirect('/');
                 } else {
                     $data['errors']['passwordErr'] = 'Wrong password or email';
                     // load view with errors
@@ -95,9 +95,9 @@ class UserController extends Controller
         if ($request->isPost()) {
             $data = $request->getBody();
 
-            $data['errors']['nameErr'] = $this->vld->validateName($data['name']);
+            $data['errors']['nameErr'] = $this->vld->validateName($data['name'], 'Name');
 
-            $data['errors']['surnameErr'] = $this->vld->validateName($data['surname']);
+            $data['errors']['surnameErr'] = $this->vld->validateName($data['surname'], 'Surname');
 
             $data['errors']['emailErr'] = $this->vld->validateEmail($data['email'], $this->userModel);
 
@@ -122,4 +122,18 @@ class UserController extends Controller
             return $this->render('register', $data);
         }
     }
+    public function createUserSession($userRow)
+    {
+        $_SESSION['user_id'] = $userRow->id;
+        $_SESSION['user_email'] = $userRow->email;
+        $_SESSION['user_name'] = $userRow->name;
+
+    }
+
+    /**
+     * Unset Session values and destroy session + redirect to /
+     *
+     * @param Request $request
+     */
+    
 }
