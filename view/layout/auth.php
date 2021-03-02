@@ -13,7 +13,7 @@
 <body>
   <div class="page-container">
     <div class="page-content-auth">
-      <nav class="navbar navbar-expand-lg navbar-light bg-c">
+      <!-- <nav class="navbar navbar-expand-lg navbar-light bg-c">
         <div class="container">
           <a class="navbar-brand text-dark" href="/">Lemon<strong>Gym</strong></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@
             </div>
           </div>
         </div>
-      </nav>
+      </nav> -->
 
       <div class="container">
         {{content}}
@@ -37,7 +37,7 @@
       
     </div>
 
-    <footer class=" text-center text-lg-start">
+    <footer class=" text-center text-lg-start ">
       <div class="text-center p-3" >
         © 2021 <a class="text-dark" href="https://www.linkedin.com/in/edmundas-gataveckas-69148816a/">Edmundas Gataveckas</a>, all rights reserved.
       </div>
